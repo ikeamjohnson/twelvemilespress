@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twelve Miles Press</title>
+<meta name="description" content="Twelve Miles Press publishes literature, criticism and translation across borders, genres and traditions. Unbound by borders. Rooted in spirit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #10202E;
+    --navy-2: #172B3D;
+    --navy-3: #22384C;
+    --gold: #D4A24C;
+    --sand: #EDE6D6;
+    --muted: #B9B3A6;
+    --max: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--navy);
+    color: var(--sand);
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  a { color: var(--gold); text-underline-offset: 3px; }
+  a:hover { color: var(--sand); }
+  h1, h2, h3 { font-family: Marcellus, Georgia, serif; font-weight: 400; line-height: 1.2; margin: 0; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--gold); margin: 0 0 16px;
+  }
+
+  /* Emblem parts */
+  .e-gold { stroke: var(--gold); fill: none; }
+  .e-gold-fill { fill: var(--gold); }
+  .e-sand { stroke: var(--sand); fill: none; }
+  .e-sand-fill { fill: var(--sand); }
+  .e-ground { fill: var(--navy); stroke: var(--gold); }
+
+  /* Header */
+  header.site {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(16, 32, 46, 0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--navy-3);
+  }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--sand); }
+  .brand span { font-family: Marcellus, serif; font-size: 20px; letter-spacing: 0.16em; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 24px; }
+  nav a { color: var(--sand); text-decoration: none; font-size: 14px; letter-spacing: 0.06em; display: inline-block; padding: 10px 0; }
+  nav a:hover { color: var(--gold); }
+
+  /* Hero */
+  .hero { padding: 88px 0 96px; text-align: center; }
+  .hero svg { width: min(300px, 70vw); height: auto; }
+  .hero h1 { font-size: clamp(40px, 7vw, 72px); letter-spacing: 0.16em; margin-top: 40px; }
+  .hero .press { font-size: 13px; font-weight: 500; letter-spacing: 0.5em; color: var(--gold); margin: 14px 0 0; padding-left: 0.5em; }
+  .hero .tagline { font-family: Marcellus, serif; font-size: clamp(20px, 2.6vw, 26px); color: var(--sand); margin: 40px auto 0; max-width: 32ch; }
+
+  section { padding: 96px 0; border-top: 1px solid var(--navy-3); }
+  section h2 { font-size: clamp(32px, 4.5vw, 46px); margin-bottom: 28px; }
+  .lead { font-size: 20px; max-width: 62ch; }
+  .lead + p, p.body { max-width: 62ch; color: var(--sand); }
+
+  /* Imprints */
+  .imprints { display: grid; grid-template-columns: minmax(0, 760px); gap: 32px; margin-top: 16px; }
+  .imprint { background: var(--navy-2); border: 1px solid var(--navy-3); padding: 40px; }
+  .imprint h3 { font-size: 34px; letter-spacing: 0.08em; }
+  .imprint .what { font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin: 8px 0 20px; }
+  .imprint p { margin: 0 0 12px; }
+  .imprint .gloss { font-style: italic; color: var(--muted); }
+
+  /* Books */
+  .book { display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: start; margin-top: 40px; }
+  .cover {
+    aspect-ratio: 2 / 3; background: var(--navy-2); border: 1px solid var(--gold);
+    display: flex; flex-direction: column; justify-content: space-between; padding: 24px; text-align: center;
+  }
+  .cover .t { font-family: Marcellus, serif; font-size: 24px; line-height: 1.25; }
+  .cover .st { font-size: 13px; color: var(--gold); letter-spacing: 0.08em; margin-top: 8px; }
+  .cover .a { font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid var(--gold); color: var(--gold); padding: 4px 12px; margin-bottom: 18px; }
+  .book h3 { font-size: 32px; }
+  .book .by { color: var(--muted); margin: 6px 0 20px; }
+
+  /* Two columns */
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; }
+  .cols h3 { font-size: 26px; margin-bottom: 14px; }
+  .cols p { margin: 0 0 12px; }
+
+  ul.notes { margin: 0; padding-left: 20px; }
+  ul.notes li { margin-bottom: 8px; }
+  footer { border-top: 1px solid var(--navy-3); padding: 48px 0; font-size: 14px; color: var(--muted); }
+  footer .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 720px) {
+    .book { grid-template-columns: 1fr; }
+    .cover { max-width: 220px; }
+    section { padding: 72px 0; }
+    .hero { padding: 56px 0 72px; }
+    .imprint { padding: 28px; }
+  }
+
+  body { background-color: var(--navy); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.93  0 0 0 0 0.9  0 0 0 0 0.84  0 0 0 0.075 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Cpath d='M0 0.5H6M0.5 0V6' stroke='%23EDE6D6' stroke-opacity='0.025' stroke-width='1'/%3E%3C/svg%3E"); }
+  section { border-top: none; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 14' preserveAspectRatio='none'%3E%3Cpath d='M0 5.9 L26 6.5 L46 4.6 L68 5.4 L96 6.5 L121 6.2 L147 5.0 L170 5.1 L199 4.8 L227 4.8 L253 5.5 L276 7.0 L294 4.8 L323 6.0 L342 7.4 L372 4.9 L395 5.0 L417 6.3 L436 6.6 L455 5.1 L483 5.7 L506 6.3 L530 5.7 L548 6.6 L578 7.3 L604 5.6 L626 6.5 L652 4.9 L673 5.6 L697 6.9 L721 4.7 L749 5.8 L773 5.2 L796 5.7 L823 4.9 L848 5.1 L874 4.7 L896 5.6 L921 4.7 L945 5.2 L966 5.9 L996 5.9 L1025 5.1 L1054 5.6 L1075 6.7 L1104 4.6 L1125 6.8 L1147 5.3 L1165 4.7 L1190 7.4 L1220 6.0 L1239 5.5 L1266 6.9 L1292 5.2 L1316 5.9 L1342 5.3 L1371 7.1 L1391 5.4 L1419 5.4' fill='none' stroke='%23D4A24C' stroke-opacity='0.45' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M0 8.6 L26 9.2 L47 7.7 L68 9.2 L94 7.2 L123 8.2 L144 8.3 L174 8.7 L199 10.0 L229 9.4 L252 8.8 L280 9.5 L305 8.0 L328 9.3 L353 6.8 L379 10.0 L407 9.9 L436 8.6 L463 8.1 L482 8.0 L504 10.1 L530 8.6 L556 7.1 L580 9.2 L603 7.6 L626 7.9 L652 7.2 L671 7.8 L697 9.4 L723 10.1 L746 6.8 L770 8.3 L790 9.1 L812 7.6 L834 10.1 L852 8.0 L873 7.4 L896 7.5 L925 8.5 L952 7.3 L975 8.9 L1003 7.6 L1027 9.8 L1055 7.5 L1079 9.4 L1102 9.1 L1128 10.2 L1153 9.2 L1175 9.3 L1197 8.5 L1219 7.8 L1239 7.5 L1263 7.6 L1282 9.6 L1303 10.1 L1329 8.1 L1357 9.9 L1379 7.2 L1405 9.7 L1430 9.5' fill='none' stroke='%23EDE6D6' stroke-opacity='0.18' stroke-width='0.8'/%3E%3C/svg%3E") top center / 100% 14px no-repeat; }
+  header.site { border-bottom: none; }
+  header.site::after { content: ""; position: absolute; left: 0; right: 0; bottom: -7px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 14' preserveAspectRatio='none'%3E%3Cpath d='M0 5.9 L26 6.5 L46 4.6 L68 5.4 L96 6.5 L121 6.2 L147 5.0 L170 5.1 L199 4.8 L227 4.8 L253 5.5 L276 7.0 L294 4.8 L323 6.0 L342 7.4 L372 4.9 L395 5.0 L417 6.3 L436 6.6 L455 5.1 L483 5.7 L506 6.3 L530 5.7 L548 6.6 L578 7.3 L604 5.6 L626 6.5 L652 4.9 L673 5.6 L697 6.9 L721 4.7 L749 5.8 L773 5.2 L796 5.7 L823 4.9 L848 5.1 L874 4.7 L896 5.6 L921 4.7 L945 5.2 L966 5.9 L996 5.9 L1025 5.1 L1054 5.6 L1075 6.7 L1104 4.6 L1125 6.8 L1147 5.3 L1165 4.7 L1190 7.4 L1220 6.0 L1239 5.5 L1266 6.9 L1292 5.2 L1316 5.9 L1342 5.3 L1371 7.1 L1391 5.4 L1419 5.4' fill='none' stroke='%23D4A24C' stroke-opacity='0.45' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M0 8.6 L26 9.2 L47 7.7 L68 9.2 L94 7.2 L123 8.2 L144 8.3 L174 8.7 L199 10.0 L229 9.4 L252 8.8 L280 9.5 L305 8.0 L328 9.3 L353 6.8 L379 10.0 L407 9.9 L436 8.6 L463 8.1 L482 8.0 L504 10.1 L530 8.6 L556 7.1 L580 9.2 L603 7.6 L626 7.9 L652 7.2 L671 7.8 L697 9.4 L723 10.1 L746 6.8 L770 8.3 L790 9.1 L812 7.6 L834 10.1 L852 8.0 L873 7.4 L896 7.5 L925 8.5 L952 7.3 L975 8.9 L1003 7.6 L1027 9.8 L1055 7.5 L1079 9.4 L1102 9.1 L1128 10.2 L1153 9.2 L1175 9.3 L1197 8.5 L1219 7.8 L1239 7.5 L1263 7.6 L1282 9.6 L1303 10.1 L1329 8.1 L1357 9.9 L1379 7.2 L1405 9.7 L1430 9.5' fill='none' stroke='%23EDE6D6' stroke-opacity='0.18' stroke-width='0.8'/%3E%3C/svg%3E") center / 100% 14px no-repeat; pointer-events: none; }
+  .imprint { border: none; background: rgba(23, 43, 61, 0.72) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M1.2 1.1 L98.8 0.8 L99.0 98.8 L1.6 98.7 Z' fill='none' stroke='%23D4A24C' stroke-opacity='0.7' stroke-width='1.3' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M0.2 0.8 L100.3 1.1 L97.9 99.9 L2.0 100.2 Z' fill='none' stroke='%23EDE6D6' stroke-opacity='0.22' stroke-width='0.8' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center / 100% 100% no-repeat; }
+  .hero-band { position: relative; overflow: hidden; }
+  .hero-band .painting { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .hero-band .veil { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 50% 45%, rgba(16,32,46,0.62), rgba(16,32,46,0.15) 70%, rgba(16,32,46,0.55)); }
+  .hero-band .hero { position: relative; z-index: 1; }
+  .inked { filter: url(#ink); }
+  footer { border-top: none; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 14' preserveAspectRatio='none'%3E%3Cpath d='M0 5.9 L26 6.5 L46 4.6 L68 5.4 L96 6.5 L121 6.2 L147 5.0 L170 5.1 L199 4.8 L227 4.8 L253 5.5 L276 7.0 L294 4.8 L323 6.0 L342 7.4 L372 4.9 L395 5.0 L417 6.3 L436 6.6 L455 5.1 L483 5.7 L506 6.3 L530 5.7 L548 6.6 L578 7.3 L604 5.6 L626 6.5 L652 4.9 L673 5.6 L697 6.9 L721 4.7 L749 5.8 L773 5.2 L796 5.7 L823 4.9 L848 5.1 L874 4.7 L896 5.6 L921 4.7 L945 5.2 L966 5.9 L996 5.9 L1025 5.1 L1054 5.6 L1075 6.7 L1104 4.6 L1125 6.8 L1147 5.3 L1165 4.7 L1190 7.4 L1220 6.0 L1239 5.5 L1266 6.9 L1292 5.2 L1316 5.9 L1342 5.3 L1371 7.1 L1391 5.4 L1419 5.4' fill='none' stroke='%23D4A24C' stroke-opacity='0.45' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M0 8.6 L26 9.2 L47 7.7 L68 9.2 L94 7.2 L123 8.2 L144 8.3 L174 8.7 L199 10.0 L229 9.4 L252 8.8 L280 9.5 L305 8.0 L328 9.3 L353 6.8 L379 10.0 L407 9.9 L436 8.6 L463 8.1 L482 8.0 L504 10.1 L530 8.6 L556 7.1 L580 9.2 L603 7.6 L626 7.9 L652 7.2 L671 7.8 L697 9.4 L723 10.1 L746 6.8 L770 8.3 L790 9.1 L812 7.6 L834 10.1 L852 8.0 L873 7.4 L896 7.5 L925 8.5 L952 7.3 L975 8.9 L1003 7.6 L1027 9.8 L1055 7.5 L1079 9.4 L1102 9.1 L1128 10.2 L1153 9.2 L1175 9.3 L1197 8.5 L1219 7.8 L1239 7.5 L1263 7.6 L1282 9.6 L1303 10.1 L1329 8.1 L1357 9.9 L1379 7.2 L1405 9.7 L1430 9.5' fill='none' stroke='%23EDE6D6' stroke-opacity='0.18' stroke-width='0.8'/%3E%3C/svg%3E") top center / 100% 14px no-repeat; }
+
+  .shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 40px; margin-top: 40px; }
+  .title-card h3 { font-size: 24px; margin: 4px 0 4px; }
+  .title-card p { margin: 0 0 10px; font-size: 15px; }
+  .title-card .kind { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin: 18px 0 6px; }
+  .title-card .by { color: var(--muted); }
+  .title-card .meta { font-size: 13px; color: var(--muted); }
+  .cover-img { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+  .cover-ph { aspect-ratio: 2 / 3; display: flex; align-items: center; justify-content: center; background: rgba(23, 43, 61, 0.72); border: 1px dashed rgba(212, 162, 76, 0.6); }
+  .cover-ph span { font-family: Marcellus, serif; letter-spacing: 0.2em; text-transform: uppercase; font-size: 14px; color: var(--gold); }
+
+  .buy { display: flex; flex-direction: column; gap: 8px; margin: 14px 0 10px; }
+  .buy-btn { display: block; text-align: center; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; padding: 11px 14px; min-height: 44px; border: 1px solid var(--gold); color: var(--sand); text-decoration: none; background: rgba(16, 32, 46, 0.6); }
+  a.buy-btn:hover { background: var(--gold); color: var(--navy); }
+  .buy-btn.is-soon { border-style: dashed; border-color: rgba(212, 162, 76, 0.55); color: var(--muted); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="impasto" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.045" numOctaves="3" seed="7" result="flow"/>
+      <feDisplacementMap in="SourceGraphic" in2="flow" scale="70" xChannelSelector="R" yChannelSelector="G" result="brushed"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.035 0.22" numOctaves="3" seed="11" result="strokes"/>
+      <feDiffuseLighting in="strokes" surfaceScale="2.6" lighting-color="#ffffff" result="relief">
+        <feDistantLight azimuth="235" elevation="58"/>
+      </feDiffuseLighting>
+      <feComposite in="brushed" in2="relief" operator="arithmetic" k1="1.18" k2="0" k3="0" k4="0"/>
+    </filter>
+  </defs>
+</svg>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Twelve Miles Press, home">
+      <svg class="inked" width="40" height="40" viewBox="0 0 240 240" aria-hidden="true">
+        <circle class="e-gold" cx="120" cy="120" r="100" stroke-width="14"/>
+        <path class="e-sand" d="M20 124 q12 -8 25 0 t25 0 t25 0 t25 0 t25 0 t25 0 t25 0 t25 0" stroke-width="14" stroke-linecap="round"/>
+        <path class="e-gold-fill" d="M80 112 A40 40 0 0 1 160 112 Z"/>
+      </svg>
+      <span>TWELVE MILES</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#publish">What we publish</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#submissions">Submissions</a></li>
+        <li><a href="#editor">Masthead</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero-band">
+    <svg class="painting" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g filter="url(#impasto)">
+        <rect x="-100" y="-100" width="1640" height="1100" fill="#10202E"/>
+        <ellipse cx="720" cy="230" rx="980" ry="330" fill="#1B3247"/>
+        <ellipse cx="380" cy="160" rx="420" ry="120" fill="#23405A" opacity="0.7"/>
+        <ellipse cx="1120" cy="300" rx="380" ry="110" fill="#203A52" opacity="0.8"/>
+        <ellipse cx="720" cy="470" rx="620" ry="95" fill="#6E5636" opacity="0.55"/>
+        <ellipse cx="720" cy="468" rx="300" ry="44" fill="#B58A45" opacity="0.45"/>
+        <rect x="-100" y="490" width="1640" height="520" fill="#0D2232"/>
+        <ellipse cx="720" cy="520" rx="560" ry="10" fill="#C79A50" opacity="0.35"/>
+        <ellipse cx="520" cy="580" rx="360" ry="8" fill="#2E5068" opacity="0.8"/>
+        <ellipse cx="980" cy="640" rx="420" ry="9" fill="#2A4A60" opacity="0.8"/>
+        <ellipse cx="700" cy="610" rx="220" ry="6" fill="#EDE6D6" opacity="0.14"/>
+        <ellipse cx="420" cy="720" rx="460" ry="10" fill="#1F3D52" opacity="0.9"/>
+        <ellipse cx="1060" cy="780" rx="380" ry="9" fill="#2A4A60" opacity="0.7"/>
+        <ellipse cx="760" cy="840" rx="520" ry="12" fill="#183448" opacity="0.9"/>
+      </g>
+    </svg>
+    <div class="veil"></div>
+    <div class="wrap hero">
+    <svg class="inked" viewBox="0 0 240 240" role="img" aria-label="Twelve Miles Press emblem: a sun rising over a wave-shaped horizon inside a ring, with a line reaching below the water">
+      <circle class="e-gold" cx="120" cy="120" r="104" stroke-width="3"/>
+      <circle class="e-gold" cx="120" cy="120" r="96" stroke-width="1"/>
+      <path class="e-gold-fill" d="M88 114 A32 32 0 0 1 152 114 Z"/>
+      <g class="e-gold" stroke-width="3" stroke-linecap="round">
+        <line x1="158.8" y1="97.9" x2="169.9" y2="93.3"/>
+        <line x1="149.7" y1="84.3" x2="158.2" y2="75.8"/>
+        <line x1="136.1" y1="75.2" x2="140.7" y2="64.1"/>
+        <line x1="120" y1="72" x2="120" y2="60"/>
+        <line x1="103.9" y1="75.2" x2="99.3" y2="64.1"/>
+        <line x1="90.3" y1="84.3" x2="81.8" y2="75.8"/>
+        <line x1="81.2" y1="97.9" x2="70.1" y2="93.3"/>
+      </g>
+      <line class="e-gold" x1="120" y1="126" x2="120" y2="214" stroke-width="3"/>
+      <path class="e-sand" d="M16 120 q13 -7 26 0 t26 0 t26 0 t26 0 t26 0 t26 0 t26 0 t26 0" stroke-width="3" stroke-linecap="round"/>
+      <g class="e-gold" stroke-width="2.5" stroke-linecap="round">
+        <path d="M40 152 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0"/>
+        <path d="M60 176 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0"/>
+      </g>
+      <circle class="e-gold-fill" cx="120" cy="16" r="9"/>
+      <circle class="e-sand-fill" cx="224" cy="120" r="9"/>
+      <circle class="e-ground" cx="120" cy="224" r="9" stroke-width="3"/>
+      <circle class="e-sand-fill" cx="16" cy="120" r="9"/>
+    </svg>
+    <h1>TWELVE MILES</h1>
+    <p class="press">PRESS</p>
+    <p class="tagline">Unbound by borders. Rooted in spirit.</p>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <p class="eyebrow">About the press</p>
+      <p class="lead">Twelve Miles Press publishes literature, criticism and translation.</p>
+      <p class="body">Founded by a comparative literature scholar, we champion works across borders, genres, and traditions that illuminate interior lives, ancestral philosophies, and hidden spiritual currents, with particular attention to voices and traditions too often left out of the canon. We believe that no tradition is off-limits, no voice is marginal, and the deepest truths live where disciplines meet.</p>
+      <p class="body">Our books are for every reader, and our doors are open to writers, translators and scholars of every background.</p>
+    </div>
+  </section>
+
+  <section id="publish">
+    <div class="wrap">
+      <p class="eyebrow">What we publish</p>
+      <h2>Three books a year</h2>
+      <p class="body">Each year we publish three books, one in each of the areas below. Our list ranges across the world's literatures: Black and African diasporic, Mediterranean and Middle Eastern, Asian, Indigenous, and beyond.</p>
+      <div class="imprints" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 40px">
+        <article class="imprint">
+          <p class="what">Translation</p>
+          <p>Literature and thought carried into English, and critical editions that return overlooked works to readers with fresh scholarly framing.</p>
+        </article>
+        <article class="imprint">
+          <p class="what">Criticism and thought</p>
+          <p>Rigorous, readable criticism and philosophy on ancestral wisdom, spiritual traditions and the meeting of disciplines, written for classrooms and curious readers alike.</p>
+        </article>
+        <article class="imprint">
+          <p class="what">Literature</p>
+          <p>Fiction, poetry and literary nonfiction that cross borders and illuminate interior lives.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="books">
+    <div class="wrap">
+      <p class="eyebrow">Books</p>
+      <h2>Our list</h2>
+      <p class="body">We publish just three titles a year, so each one receives our full attention. Our first titles are in preparation. Each Twelve Miles book will carry an original cover by a commissioned artist, painted in oil and drawn by hand. New books will be announced here.</p>
+      <div class="shelf">
+        <!--
+          To add a book, copy this block, replace the placeholder cover with
+          <img class="cover-img" src="your-cover.jpg" alt="Cover of TITLE">,
+          and fill in the details:
+
+        <article class="title-card">
+          <img class="cover-img" src="your-cover.jpg" alt="Cover of Book Title">
+          <p class="kind">Fiction · Coming spring 2027</p>
+          <h3>Book Title</h3>
+          <p class="by">by Author Name</p>
+          <p>Two or three sentences about the book.</p>
+          <p class="meta">Paperback · ISBN 978-0-000000-00-0 · $16.99</p>
+          <div class="buy">
+            <a class="buy-btn" href="https://www.barnesandnoble.com/s/9780000000000" target="_blank" rel="noopener">Barnes and Noble</a>
+            <a class="buy-btn" href="https://www.booksamillion.com/search?query=9780000000000" target="_blank" rel="noopener">Books-A-Million</a>
+            <a class="buy-btn" href="https://www.amazon.com/s?k=9780000000000" target="_blank" rel="noopener">Amazon</a>
+          </div>
+        </article>
+
+          Replace 9780000000000 in all three links with the book's ISBN (13 digits,
+          no hyphens). Once a book is live, you can swap each link for the exact
+          product page on that site.
+        -->
+        <article class="title-card">
+          <div class="cover-ph" aria-hidden="true"><span>Forthcoming</span></div>
+          <p class="kind">Coming soon</p>
+          <h3>First titles</h3>
+          <p>Translations, critical editions and creative works, announced here first.</p>
+          <div class="buy" aria-label="Retailers, available at publication">
+            <span class="buy-btn is-soon">Barnes and Noble</span>
+            <span class="buy-btn is-soon">Books-A-Million</span>
+            <span class="buy-btn is-soon">Amazon</span>
+          </div>
+          <p class="meta">Buying links go live at publication.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="submissions">
+    <div class="wrap">
+      <p class="eyebrow">Submissions · Opening December 2026</p>
+      <h2>Coming soon: your work</h2>
+      <p class="lead">Twelve Miles Press will open to submissions in December 2026. We'll welcome writers, translators and scholars of every background and at every stage, from first-time writers to established voices. Please don't send work before then. The guidelines below show what we'll ask for.</p>
+      <p class="body">We're looking for work in our three areas: translations and critical editions, criticism and thought, and literature (fiction, poetry and literary nonfiction). Translations from any language and bilingual work are welcome.</p>
+
+      <div class="cols" style="margin-top: 48px">
+        <div>
+          <h3>Creative work</h3>
+          <p>Fiction, poetry and literary nonfiction. Send a cover letter with a short bio and a one-page synopsis, plus the first three chapters (about 50 pages), or 10 to 15 poems.</p>
+        </div>
+        <div>
+          <h3>Criticism and thought</h3>
+          <p>Send a cover letter and a proposal: an overview of the project, a chapter outline, its intended readers (classrooms, scholars, general readers), a sample chapter, and a short bio. A CV is welcome but not required, and independent scholars are encouraged to submit.</p>
+        </div>
+        <div>
+          <h3>Translations and critical editions</h3>
+          <p>Send a cover letter describing the original work and its author, the rights status of the original, and a sample of 20 to 30 pages with the corresponding original text.</p>
+        </div>
+      </div>
+
+      <div class="cols" style="margin-top: 48px">
+        <div>
+          <h3>How to submit</h3>
+          <p>Once submissions open, email your work to <strong>editor@twelvemilespress.org</strong> with the subject line <em>Submission: Title, Your Name</em>. Attach your files as PDF or Word documents.</p>
+        </div>
+        <div>
+          <h3>Good to know</h3>
+          <ul class="notes">
+            <li>We publish three titles a year, so we read closely and choose carefully.</li>
+            <li>There is no reading fee, and no agent is needed.</li>
+            <li>First-time, emerging, independent and non-academic writers are warmly welcome.</li>
+            <li>Simultaneous submissions are welcome; please tell us if your work is accepted elsewhere.</li>
+            <li>We read every submission with care and aim to respond within four to eight weeks.</li>
+            <li>If you need an accommodation to submit, such as a different format or more time, write to us and we'll work with you.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trade">
+    <div class="wrap">
+      <p class="eyebrow">Trade</p>
+      <h3 style="font-size: 26px; margin-bottom: 14px">Booksellers and librarians</h3>
+      <p class="body">Our print books will be available to bookstores and libraries through Ingram, with standard trade terms. Sell sheets, ISBNs and ordering information for each title will be posted here ahead of publication.</p>
+    </div>
+  </section>
+
+  <section id="editor">
+    <div class="wrap">
+      <p class="eyebrow">Masthead</p>
+      <h2>Editor and publisher</h2>
+      <p class="lead">Ikea M. Johnson, Ph.D.</p>
+      <p class="body">Twelve Miles Press was founded by Ikea M. Johnson, a scholar of comparative literature who holds a Ph.D. from Louisiana State University. She has served as Executive Editor of the <em>Journal of Comparative Literature and Aesthetics</em> since 2020 and teaches literature, philosophy and film at a New England university. Her work spans African American literature, Kemetic and Buddhist philosophy, and Afrofuturism.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2>Get in touch</h2>
+      <p class="body">For rights, events, review copies and everything else, write to us at <strong>editor@twelvemilespress.org</strong>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>© 2026 Twelve Miles Press · Newport, Rhode Island</span>
+    <span>Unbound by borders. Rooted in spirit.</span>
+  </div>
+</footer>
+
+</body>
+</html>
