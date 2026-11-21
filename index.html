@@ -135,6 +135,20 @@
   .buy-btn { display: block; text-align: center; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; padding: 11px 14px; min-height: 44px; border: 1px solid var(--gold); color: var(--sand); text-decoration: none; background: rgba(16, 32, 46, 0.6); }
   a.buy-btn:hover { background: var(--gold); color: var(--navy); }
   .buy-btn.is-soon { border-style: dashed; border-color: rgba(212, 162, 76, 0.55); color: var(--muted); }
+
+  .cover-art { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
+  .shelf-note { margin-top: 28px; font-size: 14px; color: var(--muted); }
+
+  .buy-btn.bn { background: #2E5E45; border-color: #2E5E45; color: #FFFFFF; }
+  .buy-btn.bam { background: #C8102E; border-color: #C8102E; color: #FFFFFF; }
+  .buy-btn.amz { background: #FF9900; border-color: #FF9900; color: #111111; }
+  a.buy-btn.bn:hover, a.buy-btn.bam:hover, a.buy-btn.amz:hover { filter: brightness(1.12); background-color: inherit; }
+  a.buy-btn.bn:hover { background: #2E5E45; color: #FFFFFF; }
+  a.buy-btn.bam:hover { background: #C8102E; color: #FFFFFF; }
+  a.buy-btn.amz:hover { background: #FF9900; color: #111111; }
+  .buy-btn.is-soon { border-style: solid; opacity: 0.92; cursor: default; }
+  .buy-btn.bn.is-soon, .buy-btn.bam.is-soon { color: #FFFFFF; }
+  .buy-btn.amz.is-soon { color: #111111; }
 </style>
 </head>
 <body>
@@ -281,9 +295,9 @@
           <p>Two or three sentences about the book.</p>
           <p class="meta">Paperback · ISBN 978-0-000000-00-0 · $16.99</p>
           <div class="buy">
-            <a class="buy-btn" href="https://www.barnesandnoble.com/s/9780000000000" target="_blank" rel="noopener">Barnes and Noble</a>
-            <a class="buy-btn" href="https://www.booksamillion.com/search?query=9780000000000" target="_blank" rel="noopener">Books-A-Million</a>
-            <a class="buy-btn" href="https://www.amazon.com/s?k=9780000000000" target="_blank" rel="noopener">Amazon</a>
+            <a class="buy-btn bn" href="https://www.barnesandnoble.com/s/9780000000000" target="_blank" rel="noopener">Barnes and Noble</a>
+            <a class="buy-btn bam" href="https://www.booksamillion.com/search?query=9780000000000" target="_blank" rel="noopener">Books-A-Million</a>
+            <a class="buy-btn amz" href="https://www.amazon.com/s?k=9780000000000" target="_blank" rel="noopener">Amazon</a>
           </div>
         </article>
 
@@ -292,18 +306,76 @@
           product page on that site.
         -->
         <article class="title-card">
-          <div class="cover-ph" aria-hidden="true"><span>Forthcoming</span></div>
+          <svg class="cover-art" viewBox="0 0 200 300" role="img" aria-label="Forthcoming Translation title, Twelve Miles Press">
+            <g filter="url(#impasto)">
+              <rect x="-20" y="-20" width="240" height="340" fill="#10202E"/>
+              <ellipse cx="100" cy="70" rx="170" ry="90" fill="#1E3A52"/>
+              <ellipse cx="100" cy="150" rx="140" ry="22" fill="#B58A45" opacity="0.55"/>
+              <rect x="-20" y="158" width="240" height="170" fill="#0D2232"/>
+              <ellipse cx="80" cy="200" rx="90" ry="4" fill="#EDE6D6" opacity="0.12"/>
+              <ellipse cx="130" cy="240" rx="100" ry="5" fill="#2A4A60" opacity="0.8"/>
+            </g>
+            <rect x="8" y="8" width="184" height="284" fill="none" stroke="#D4A24C" stroke-opacity="0.7" stroke-width="1"/>
+            <g class="inked" transform="translate(76 34) scale(0.2)">
+              <circle class="e-gold" cx="120" cy="120" r="100" stroke-width="14"/>
+              <path class="e-sand" d="M20 124 q12 -8 25 0 t25 0 t25 0 t25 0 t25 0 t25 0 t25 0 t25 0" stroke-width="14" stroke-linecap="round"/>
+              <path class="e-gold-fill" d="M80 112 A40 40 0 0 1 160 112 Z"/>
+            </g>
+            <text x="100" y="150" text-anchor="middle" font-family="Marcellus, serif" font-size="22" fill="#EDE6D6"><tspan x="100" dy="0">Translation</tspan></text>
+            <text x="100" y="236" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" letter-spacing="3" fill="#D4A24C">FORTHCOMING</text>
+            <text x="100" y="272" text-anchor="middle" font-family="Marcellus, serif" font-size="10" letter-spacing="3" fill="#EDE6D6" opacity="0.85">TWELVE MILES PRESS</text>
+          </svg>
           <p class="kind">Coming soon</p>
-          <h3>First titles</h3>
-          <p>Translations, critical editions and creative works, announced here first.</p>
-          <div class="buy" aria-label="Retailers, available at publication">
-            <span class="buy-btn is-soon">Barnes and Noble</span>
-            <span class="buy-btn is-soon">Books-A-Million</span>
-            <span class="buy-btn is-soon">Amazon</span>
-          </div>
-          <p class="meta">Buying links go live at publication.</p>
+          <p>Literature and thought carried into English.</p>
+        </article>
+        <article class="title-card">
+          <svg class="cover-art" viewBox="0 0 200 300" role="img" aria-label="Forthcoming Criticism and Thought title, Twelve Miles Press">
+            <g filter="url(#impasto)">
+              <rect x="-20" y="-20" width="240" height="340" fill="#10202E"/>
+              <ellipse cx="100" cy="70" rx="170" ry="90" fill="#2A3550"/>
+              <ellipse cx="100" cy="150" rx="140" ry="22" fill="#8E6A3E" opacity="0.55"/>
+              <rect x="-20" y="158" width="240" height="170" fill="#101E30"/>
+              <ellipse cx="80" cy="200" rx="90" ry="4" fill="#EDE6D6" opacity="0.12"/>
+              <ellipse cx="130" cy="240" rx="100" ry="5" fill="#2A4A60" opacity="0.8"/>
+            </g>
+            <rect x="8" y="8" width="184" height="284" fill="none" stroke="#D4A24C" stroke-opacity="0.7" stroke-width="1"/>
+            <g class="inked" transform="translate(76 34) scale(0.2)">
+              <circle class="e-gold" cx="120" cy="120" r="100" stroke-width="14"/>
+              <path class="e-sand" d="M20 124 q12 -8 25 0 t25 0 t25 0 t25 0 t25 0 t25 0 t25 0 t25 0" stroke-width="14" stroke-linecap="round"/>
+              <path class="e-gold-fill" d="M80 112 A40 40 0 0 1 160 112 Z"/>
+            </g>
+            <text x="100" y="137" text-anchor="middle" font-family="Marcellus, serif" font-size="22" fill="#EDE6D6"><tspan x="100" dy="0">Criticism</tspan><tspan x="100" dy="26">and Thought</tspan></text>
+            <text x="100" y="236" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" letter-spacing="3" fill="#D4A24C">FORTHCOMING</text>
+            <text x="100" y="272" text-anchor="middle" font-family="Marcellus, serif" font-size="10" letter-spacing="3" fill="#EDE6D6" opacity="0.85">TWELVE MILES PRESS</text>
+          </svg>
+          <p class="kind">Coming soon</p>
+          <p>Criticism and philosophy for classrooms and curious readers.</p>
+        </article>
+        <article class="title-card">
+          <svg class="cover-art" viewBox="0 0 200 300" role="img" aria-label="Forthcoming Literature title, Twelve Miles Press">
+            <g filter="url(#impasto)">
+              <rect x="-20" y="-20" width="240" height="340" fill="#10202E"/>
+              <ellipse cx="100" cy="70" rx="170" ry="90" fill="#1B3A4A"/>
+              <ellipse cx="100" cy="150" rx="140" ry="22" fill="#C79A50" opacity="0.55"/>
+              <rect x="-20" y="158" width="240" height="170" fill="#0C2430"/>
+              <ellipse cx="80" cy="200" rx="90" ry="4" fill="#EDE6D6" opacity="0.12"/>
+              <ellipse cx="130" cy="240" rx="100" ry="5" fill="#2A4A60" opacity="0.8"/>
+            </g>
+            <rect x="8" y="8" width="184" height="284" fill="none" stroke="#D4A24C" stroke-opacity="0.7" stroke-width="1"/>
+            <g class="inked" transform="translate(76 34) scale(0.2)">
+              <circle class="e-gold" cx="120" cy="120" r="100" stroke-width="14"/>
+              <path class="e-sand" d="M20 124 q12 -8 25 0 t25 0 t25 0 t25 0 t25 0 t25 0 t25 0 t25 0" stroke-width="14" stroke-linecap="round"/>
+              <path class="e-gold-fill" d="M80 112 A40 40 0 0 1 160 112 Z"/>
+            </g>
+            <text x="100" y="150" text-anchor="middle" font-family="Marcellus, serif" font-size="22" fill="#EDE6D6"><tspan x="100" dy="0">Literature</tspan></text>
+            <text x="100" y="236" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" letter-spacing="3" fill="#D4A24C">FORTHCOMING</text>
+            <text x="100" y="272" text-anchor="middle" font-family="Marcellus, serif" font-size="10" letter-spacing="3" fill="#EDE6D6" opacity="0.85">TWELVE MILES PRESS</text>
+          </svg>
+          <p class="kind">Coming soon</p>
+          <p>Fiction, poetry and literary nonfiction that cross borders.</p>
         </article>
       </div>
+      <p class="meta shelf-note">Titles, covers and buying links from Barnes and Noble, Books-A-Million and Amazon will appear here at publication.</p>
     </div>
   </section>
 
